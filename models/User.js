@@ -28,11 +28,6 @@ const UserSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
-    age: {
-        type: Number,
-        required: true,
-        trim: true
-    },
     createdAt: {
         type: Date,
         default: Date.now

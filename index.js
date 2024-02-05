@@ -9,17 +9,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Connection URI
-const MONGO_URL = process.env.MONGO_URL; // Assuming MongoDB is running locally on the default port
+const MONGO_URL = process.env.MONGO_URL;
 
-async function createConnection() {
-    const client = new MongoClient(MONGO_URL);
-    await client.connect();
-    console.log("MongoDb is connected");
-    return client;
+// db
+async function connectToDB() {
+    const client = new MongoClient(MONGO_URL)
+    await client.connect()
+    console.log("Connected to MongoDB")
+    return client
 }
 
-export const client = await createConnection();
+export const client = await connectToDB();
 
 app.get("/", (req, res) => {
     res.send("Backend Server is running");

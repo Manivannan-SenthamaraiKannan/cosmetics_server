@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { CartItemSchema } from './CartItem'
 
 // Define the schema for the Cart
-const CartSchema = new Schema({
+const CartSchema = new mongoose.Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
